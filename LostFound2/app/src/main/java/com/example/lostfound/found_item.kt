@@ -1,23 +1,18 @@
 package com.example.lostfound
 
-import android.app.Application
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.lostfound.databinding.ActivityFoundItemBinding
 import com.example.lostfound.databinding.ActivityLostItemsBinding
 import com.google.firebase.database.*
 
 class found_item : AppCompatActivity()
 {
-    private lateinit var binding : ActivityFoundItemBinding
 //    private lateinit var binding : ActivityFoundItemBinding
-
+    private lateinit var binding : ActivityLostItemsBinding
+    private lateinit var foundit_card : CardView
     private lateinit var dbref: DatabaseReference
     private lateinit var founditemrecycler : RecyclerView
     private lateinit var lostitemlist : ArrayList<LostItems>
@@ -30,6 +25,8 @@ class found_item : AppCompatActivity()
         founditemrecycler.setHasFixedSize(true)
         lostitemlist = arrayListOf<LostItems>()
         getfounditemdata()
+
+
         }
 
     private fun getfounditemdata(){

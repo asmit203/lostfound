@@ -3,12 +3,10 @@ package com.example.lostfound
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ExpandableListView.OnChildClickListener
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-class FoundlistAdapter (private val foundlist: ArrayList<LostItems>
+class FoundlistAdapter(private val foundlist: ArrayList<LostItems>
                         ): RecyclerView.Adapter<FoundlistAdapter.MyViewHolder>() {
 
 
@@ -37,7 +35,7 @@ class FoundlistAdapter (private val foundlist: ArrayList<LostItems>
             return foundlist.size
         }
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-//        val founditcard: CardView = itemView.findViewById(R.id.founditcard)
+        //val founditcard: CardView = itemView.findViewById(R.id.founditcard)
         val name : TextView = itemView.findViewById(R.id.name)
         val phnnum : TextView = itemView.findViewById(R.id.phnnum)
         val pht_url : TextView = itemView.findViewById(R.id.pht_url)

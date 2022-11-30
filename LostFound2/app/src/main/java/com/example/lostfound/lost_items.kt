@@ -12,7 +12,6 @@ import com.google.firebase.database.FirebaseDatabase
 class lost_items : AppCompatActivity() {
     private lateinit var binding : ActivityLostItemsBinding
     private lateinit var database: DatabaseReference
-//    database = Firebase.database.reference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLostItemsBinding.inflate(layoutInflater)

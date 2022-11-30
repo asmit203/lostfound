@@ -27,7 +27,7 @@
                 android:value="" />
         </activity> <!-- <activity android:name="MainActivity" android:noHistory="true"/> -->
         <activity
-            android:name=".AddLostItemActivity"
+            android:name=".claim_items"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

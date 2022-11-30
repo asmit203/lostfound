@@ -11,6 +11,7 @@ class Home : AppCompatActivity() {
     private lateinit var logoutbtn: Button
     private lateinit var lostitem : Button
     private lateinit var founditem : Button
+    private lateinit var claimpage : Button
     private lateinit var mAuth : FirebaseAuth
     private lateinit var claimbtn : Button
 
@@ -33,6 +34,11 @@ class Home : AppCompatActivity() {
             val intent = Intent(this,found_item::class.java)
             startActivity(intent)
         }
+        claimpage = findViewById(R.id.claim_page)
+        claimpage.setOnClickListener{
+            val intent = Intent(this,claim_items::class.java)
+            startActivity(intent)
+        }
 
 
     }
@@ -43,4 +49,5 @@ class Home : AppCompatActivity() {
         val intent = Intent(this@Home,MainActivity::class.java)
         startActivity(intent)
     }
+
 }
