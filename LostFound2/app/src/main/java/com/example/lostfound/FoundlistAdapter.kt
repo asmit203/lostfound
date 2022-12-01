@@ -25,6 +25,7 @@ class FoundlistAdapter(private val foundlist: ArrayList<LostItems>
             holder.name.text = currentitem.name
             holder.phnnum.text = currentitem.phnnum
             holder.pht_url.text = currentitem.pht_url
+
 //            holder.founditcard.setOnClickListener{
 //                clickListener.onClick()
 //            }
@@ -41,4 +42,4 @@ class FoundlistAdapter(private val foundlist: ArrayList<LostItems>
         val pht_url : TextView = itemView.findViewById(R.id.pht_url)
 
     }
-}
+    }

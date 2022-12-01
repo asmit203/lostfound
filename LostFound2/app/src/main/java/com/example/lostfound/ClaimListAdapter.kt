@@ -21,6 +21,7 @@ class ClaimListAdapter(private val claim: ArrayList<FoundItems>): RecyclerView.A
         holder.name.text = currentitem.name
         holder.phnnum.text = currentitem.phnnum
         holder.pht_url.text = currentitem.pht_url
+        holder.itemView.setOnClickListener( )
 //            holder.founditcard.setOnClickListener{
 //                clickListener.onClick()
 //            }
