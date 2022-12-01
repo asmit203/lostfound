@@ -1,13 +1,14 @@
 package com.example.lostfound
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lostfound.databinding.*
 import com.google.firebase.database.*
 
-class claim_items : AppCompatActivity() {
+class claim_items : AppCompatActivity(), ClaimListAdapter.onClickListener {
     private lateinit var binding: ActivityFoundItemBinding
     private lateinit var dbref: DatabaseReference
     private lateinit var claimitemrecycle: RecyclerView
@@ -33,7 +34,16 @@ class claim_items : AppCompatActivity() {
                         val item = itemsnapshot.getValue(FoundItems::class.java)
                         claimitemlist.add(item!!)
                     }
-                    claimitemrecycle.adapter = ClaimListAdapter(claimitemlist)
+                    var adapter = ClaimListAdapter(claimitemlist)
+                    claimitemrecycle.adapter = adapter
+                    adapter.setonclicklistener(object : ClaimListAdapter.onClickListener {
+                        override fun onItemClick(position: Int) {
+                            val item_del = claimitemlist[position].name.toString()
+                            Toast.makeText(this@claim_items, "$item_del", Toast.LENGTH_SHORT).show()
+                            delteitem(item_del)
+                        }
+
+                    })
                 }
             }
 
@@ -54,6 +64,15 @@ class claim_items : AppCompatActivity() {
 //                Toast.makeText(this,"Failed", Toast.LENGTH_SHORT).show()
 //            }
 
+
+    }
+
+    private fun delteitem(itemDel: String) {
+        dbref.child(itemDel).removeValue()
+
+    }
+
+    override fun onItemClick(position: Int) {
 
     }
 }

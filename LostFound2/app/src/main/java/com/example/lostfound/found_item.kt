@@ -2,18 +2,20 @@ package com.example.lostfound
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lostfound.databinding.ActivityLostItemsBinding
 import com.google.firebase.database.*
 
-class found_item : AppCompatActivity()
+class found_item : AppCompatActivity(),FoundlistAdapter.onClickListener
 {
 //    private lateinit var binding : ActivityFoundItemBinding
     private lateinit var binding : ActivityLostItemsBinding
     private lateinit var foundit_card : CardView
     private lateinit var dbref: DatabaseReference
+    private lateinit var newdbref: DatabaseReference
     private lateinit var founditemrecycler : RecyclerView
     private lateinit var lostitemlist : ArrayList<LostItems>
 
@@ -38,7 +40,15 @@ class found_item : AppCompatActivity()
                         val item = itemsnapshot.getValue(LostItems::class.java)
                        lostitemlist.add(item !!)
                     }
-                    founditemrecycler.adapter = FoundlistAdapter(lostitemlist)
+                    var adapter = FoundlistAdapter(lostitemlist)
+                    founditemrecycler.adapter = adapter
+                    adapter.setonclicklistener(object : FoundlistAdapter.onClickListener {
+                        override fun onItemClick(position: Int) {
+                            val item_del = lostitemlist[position].name.toString()
+                            Toast.makeText(this@found_item,"$item_del",Toast.LENGTH_SHORT).show()
+                            change_place(item_del,lostitemlist[position])
+                        }
+                    })
                 }
             }
 
@@ -47,6 +57,28 @@ class found_item : AppCompatActivity()
             }
 
         })
+    }
+
+    private fun change_place(itemDel: String, node : LostItems) {
+
+        val name = node.name.toString()
+        val date = node.date.toString()
+        val phnnum = node.phnnum.toString()
+        val address = node.address.toString()
+        val email = node.email.toString()
+        val pht_url = node.pht_url.toString()
+        newdbref = FirebaseDatabase.getInstance().getReference("FoundItems")
+        val fitem = FoundItems(name, date, phnnum, address, email, pht_url)
+        newdbref.child(itemDel).setValue(fitem).addOnSuccessListener {
+            Toast.makeText(this,"successfully found", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener{
+            Toast.makeText(this,"Failed", Toast.LENGTH_SHORT).show()
+        }
+        dbref.child(itemDel).removeValue()
+    }
+
+    override fun onItemClick(position: Int) {
+        TODO("Not yet implemented")
     }
 
 
