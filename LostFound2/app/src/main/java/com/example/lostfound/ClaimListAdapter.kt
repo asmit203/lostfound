@@ -34,7 +34,8 @@ class ClaimListAdapter(private val claim: ArrayList<FoundItems>): RecyclerView.A
 
         holder.name.text = currentitem.name
         holder.phnnum.text = currentitem.phnnum
-        holder.pht_url.text = currentitem.pht_url
+        holder.whofound.text = currentitem.whofound
+//        holder.pht_url.text = currentitem.pht_url
 
 //            holder.founditcard.setOnClickListener{
 //                clickListener.onClick()
@@ -47,8 +48,8 @@ class ClaimListAdapter(private val claim: ArrayList<FoundItems>): RecyclerView.A
     class MyViewHolderclaim(itemView : View, listener: onClickListener) : RecyclerView.ViewHolder(itemView){
         val name : TextView = itemView.findViewById(R.id.name)
         val phnnum : TextView = itemView.findViewById(R.id.phnnum)
-        val pht_url : TextView = itemView.findViewById(R.id.pht_url)
-        val cardviewclaim = itemView.findViewById<CardView>(R.id.cardclaim)
+        val whofound : TextView = itemView.findViewById(R.id.whofound)
+//        val cardviewclaim = itemView.findViewById<CardView>(R.id.cardclaim)
         init {
             itemView.setOnClickListener {
                 listener.onItemClick(position = adapterPosition)

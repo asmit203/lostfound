@@ -50,7 +50,17 @@
         android:hint="address"
         android:inputType="textPostalAddress" />
 
-    <EditText
+    <TextView
+        android:id="@+id/by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextTextPostalAddress"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toLeftOf="@id/editTextTextEmailAddress"
+        android:ems="10"
+        android:text="By:" />
+    <TextView
         android:id="@+id/editTextTextEmailAddress"
         android:layout_below="@id/editTextTextPostalAddress"
         android:layout_marginTop="20dp"
@@ -58,8 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="email"
-        android:inputType="textEmailAddress" />
+        android:hint="email" />
 
     <EditText
         android:id="@+id/photourl"
@@ -69,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="photo url"/>
+        android:hint="Description"/>
 
     <Button
         android:id="@+id/submit"

@@ -13,6 +13,20 @@
         android:theme="@style/Theme.LostFound"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateProfile"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ProfilePage"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".found_item"
             android:exported="false">
             <meta-data
@@ -28,13 +42,6 @@
         </activity> <!-- <activity android:name="MainActivity" android:noHistory="true"/> -->
         <activity
             android:name=".claim_items"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".item"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="phone num: "
+                android:text="Phone no.: "
                 android:textColor="@color/black"
                 android:textSize="26sp"
                 android:textStyle="bold"/>
@@ -80,7 +80,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="pic: "
+                android:text="Description: "
                 android:textColor="@color/black"
                 android:textSize="26sp"
                 android:textStyle="bold"/>
@@ -97,9 +97,9 @@
 
         <Button
             android:id="@+id/foundit_btn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Found it" />
+            android:text="Found it (By clicking on card)" />
     </LinearLayout>
 
     </LinearLayout>
