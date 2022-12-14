@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfilePage">
+
+  <ImageView
+      android:id="@+id/profilepic"
+      android:layout_width="150dp"
+      android:layout_height="150dp"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="10dp"
+      android:contentDescription="@string/pic"
+      tools:ignore="ImageContrastCheck"
+      tools:layout_editor_absoluteX="141dp"
+      tools:layout_editor_absoluteY="116dp"
+      android:src="@drawable/iip_logo"
+      tools:srcCompat="@tools:sample/avatars"
+      />
+
+  <TextView
+      android:id="@+id/name"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/profilepic"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="20dp"
+      android:text="Name"
+      android:textAlignment="center"
+      android:textColor="#2196F3"
+      android:textStyle="bold" />
+
+  <TextView
+      android:id="@+id/rollnum"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/name"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="30dp"
+      android:text="Rollnum" />
+
+  <TextView
+      android:id="@+id/email"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/rollnum"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="20dp"
+      android:text="email" />
+
+  <TextView
+      android:id="@+id/phonenum"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/email"
+      android:layout_marginTop="20dp"
+      android:layout_centerHorizontal="true"
+      android:layout_marginRight="150dp"
+      android:text="phn num" />
+
+  <TextView
+      android:id="@+id/lostitemtext"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/phonenum"
+      android:layout_marginTop="20dp"
+      android:layout_centerHorizontal="false"
+      android:layout_marginRight="150dp"
+      android:layout_marginLeft="10dp"
+      android:text="Lost item" />
+  <TextView
+      android:id="@+id/gotbacktext"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/phonenum"
+    android:layout_marginTop="20dp"
+      android:layout_toRightOf="@id/lostitemtext"
+    android:layout_centerHorizontal="false"
+    android:layout_marginRight="10dp"
+    android:text="Found item" />
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/useritemlost"
+      android:layout_width="200dp"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/phonenum"
+      android:layout_centerHorizontal="false"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="50dp"
+      android:minWidth="10dp"
+      tools:listitem="@layout/claim_found_item_card" />
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/useritemfound"
+      android:layout_width="200dp"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/phonenum"
+      android:layout_toRightOf="@id/useritemlost"
+      android:layout_centerHorizontal="false"
+      android:layout_marginTop="45dp"
+      tools:listitem="@layout/claim_found_item_card"
+      />
+
+  </RelativeLayout>
